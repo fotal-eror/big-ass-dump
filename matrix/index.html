@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<title>2D homogeneous matrix</title>
+	<script defer src='script.js'></script>
+	<style>
+		canvas {
+			border: solid;
+		}
+		table {
+			border-collapse: collapse;
+			margin: 8px 0;
+		}
+		table td {
+			border: solid 1px;
+		}
+		.noborder {
+			border: none;
+		}
+	</style>
+</head>
+<body>
+	<div><canvas id="cnv" width="480" height="480"></canvas></div>
+
+	<div>
+		<label><input type="checkbox" id="dottedGrid_input" checked> Dotted grid</label>
+	</div>
+
+	<div>
+		<table>
+			<caption>The matrix</caption>
+		<tbody>
+			<tr>
+				<td><label><var>M<sub>11</sub></var>: <input type="number" class="mtx_input noborder" data-index="0" value="1" step="0.05"></label></td>
+				<td><label><var>M<sub>12</sub></var>: <input type="number" class="mtx_input noborder" data-index="3" value="0" step="0.05"></label></td>
+				<td><label><var>M<sub>13</sub></var>: <input type="number" class="mtx_input noborder" data-index="6" value="0" step="0.05"></label></td>
+			</tr>
+			<tr>
+				<td><label><var>M<sub>21</sub></var>: <input type="number" class="mtx_input noborder" data-index="1" value="0" step="0.05"></label></td>
+				<td><label><var>M<sub>22</sub></var>: <input type="number" class="mtx_input noborder" data-index="4" value="1" step="0.05"></label></td>
+				<td><label><var>M<sub>23</sub></var>: <input type="number" class="mtx_input noborder" data-index="7" value="0" step="0.05"></label></td>
+			</tr>
+			<tr>
+				<td><label><var>M<sub>31</sub></var>: <input type="number" class="mtx_input noborder" data-index="2" value="0" step="0.05"></label></td>
+				<td><label><var>M<sub>32</sub></var>: <input type="number" class="mtx_input noborder" data-index="5" value="0" step="0.05"></label></td>
+				<td><label><var>M<sub>33</sub></var>: <input type="number" class="mtx_input noborder" data-index="8" value="1" step="0.05"></label></td>
+			</tr>
+		</tbody></table>
+
+		<table>
+			<caption>A vector</caption>
+		<tbody>
+			<tr><td><label><var>V<sub>x</sub></var>: <input type="number" class="vec_input noborder" data-index="0" value="0.6" step="0.05"></label></td></tr>
+			<tr><td><label><var>V<sub>y</sub></var>: <input type="number" class="vec_input noborder" data-index="1" value="0.4" step="0.05"></label></td></tr>
+			<tr><td><label><var>V<sub>w</sub></var>: <input type="number" class="vec_input noborder" data-index="2" value="1"   step="0.05"></label></td></tr>
+		</tbody></table>
+	</div>
+
+	<div>
+		<p>
+			Multiplying the vector by the matrix goes:
+			<table><tbody>
+				<!-- x -->
+				<tr>
+					<td class="noborder"><var>V<sub>x</sub></var> = </td>
+		
+					<!-- Notation -->
+					<td><var>M<sub>11</sub></var>×<var>V<sub>x</sub></var> + <var>M<sub>12</sub></var>×<var>V<sub>y</sub></var> + <var>M<sub>13</sub></var>×<var><sub>w</sub></var></td>
+		
+					<td class="noborder"> = </td>
+		
+					<!-- Insertion -->
+					<td><output class="mtx_output" data-index="0"></output>×<output class="vec_output" data-index="0"></output> + <output class="mtx_output" data-index="3"></output>×<output class="vec_output" data-index="1"></output> + <output class="mtx_output" data-index="6"></output>×<output class="vec_output" data-index="2"></output></td>
+		
+					<td class="noborder"> = </td>
+		
+					<!-- Output -->
+					<td><output class="vecByMtx_output" data-index="0"></output></td>
+				</tr>
+				<!-- y -->
+				<tr>
+					<td class="noborder"><var>V<sub>y</sub></var> = </td>
+		
+					<!-- Notation -->
+					<td><var>M<sub>21</sub></var>×<var>V<sub>x</sub></var> + <var>M<sub>22</sub></var>×<var>V<sub>y</sub></var> + <var>M<sub>23</sub></var>×<var><sub>w</sub></var></td>
+		
+					<td class="noborder"> = </td>
+		
+					<!-- Insertion -->
+					<td><output class="mtx_output" data-index="1"></output>×<output class="vec_output" data-index="0"></output> + <output class="mtx_output" data-index="4"></output>×<output class="vec_output" data-index="1"></output> + <output class="mtx_output" data-index="7"></output>×<output class="vec_output" data-index="2"></output></td>
+		
+					<td class="noborder"> = </td>
+		
+					<!-- Output -->
+					<td><output class="vecByMtx_output" data-index="1"></output></td>
+				</tr>
+				<!-- w -->
+				<tr>
+					<td class="noborder"><var>V<sub>w</sub></var> = </td>
+		
+					<!-- Notation -->
+					<td><var>M<sub>31</sub></var>×<var>V<sub>x</sub></var> + <var>M<sub>32</sub></var>×<var>V<sub>y</sub></var> + <var>M<sub>33</sub></var>×<var><sub>w</sub></var></td>
+		
+					<td class="noborder"> = </td>
+		
+					<!-- Insertion -->
+					<td><output class="mtx_output" data-index="2"></output>×<output class="vec_output" data-index="0"></output> + <output class="mtx_output" data-index="5"></output>×<output class="vec_output" data-index="1"></output> + <output class="mtx_output" data-index="8"></output>×<output class="vec_output" data-index="2"></output></td>
+		
+					<td class="noborder"> = </td>
+		
+					<!-- Output -->
+					<td><output class="vecByMtx_output" data-index="2"></output></td>
+				</tr>
+			</tbody></table>
+			And when converting the Homogeneous vector to Cartesian (when rendering), all other elements of <var>V</var> are divided by <var>V<sub>w</sub></var>:
+			<table><tbody>
+				<tr><td class="noborder"><var>U<sub>x</sub></var> = </td><td><var>V<sub>x</sub></var>÷<var>V<sub>w</sub></var></td><td class="noborder"> = </td><td><output class="vecByMtx_output" data-index="0"></output>÷<output class="vecByMtx_output" data-index="2"></output></td><td class="noborder"> = </td><td><output class="cart_output" data-index="0"></output></td></tr>
+				<tr><td class="noborder"><var>U<sub>x</sub></var> = </td><td><var>V<sub>x</sub></var>÷<var>V<sub>w</sub></var></td><td class="noborder"> = </td><td><output class="vecByMtx_output" data-index="1"></output>÷<output class="vecByMtx_output" data-index="2"></output></td><td class="noborder"> = </td><td><output class="cart_output" data-index="1"></output></td></tr>
+			</tbody></table>
+		</p>
+	</div>
+</body>
+</html>
