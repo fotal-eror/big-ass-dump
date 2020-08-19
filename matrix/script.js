@@ -9,7 +9,7 @@
 		 number, number, number]
 	} Matrix3x3 */
 
-/** Multilpy  */
+/** Multilpy vector by matrix */
 function matrix(/** @type {Matrix3x3} */ mtx, /** @type {Vector3} */ vec) {
 	return /** @type {Vector3} */ ([
 		vec[0] * mtx[0] + vec[1] * mtx[3] + vec[2] * mtx[6],
