@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Game of Life</title>
+		<script src="ui.js"></script>
+		<script src="rendering.js"></script>
+		<script src="logic.js"></script>
+		<style>
+			body {
+				background: black;
+			}
+			#canvas {
+				width: min(95vw, 95vh);
+				height: min(95vw, 95vh);
+				image-rendering: pixelated;
+				border: solid white;
+			}
+			.mainflex {
+				display: flex;
+				flex-flow: wrap;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="mainflex">
+			<canvas id="canvas"></canvas>
+			<div class="ui">
+				<button onclick="toggle()">Run/Pause [<key>P</key>]</button>
+				<button onclick="tick()">Tick once [<key>T</key>]</button>
+				<button onclick="reset()">Reset [<key>R</key>]</button>
+			</div>
+		</div>
+	</body>
+</html> 
