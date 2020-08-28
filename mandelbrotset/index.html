@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset='utf-8'>
+	<title>Mandelbrot set</title>
+	<script defer src='script.js'></script>
+	<style>
+		#cnv {
+			image-rendering: pixelated;
+			width: min(60vw, 60vh);
+			height: min(60vw, 60vh);
+			border: solid;
+		}
+	</style>
+</head>
+
+<body>
+	<canvas id="cnv"></canvas>
+
+	<div>
+		<input type="number" id="res_input" value="256" min="16" max="16384" placeholder="Resolution">
+		<input type="number" id="iter_input" value="6" min="1" placeholder="Iterations">
+		<input type="button" id="fs_button" value="Fullscreen" onclick="cnv.requestFullscreen()">
+		<input type="radio" id="rMode_input_mono" name="renderingMode"><label for="rMode_input_mono">Mono</label>
+		<input type="radio" id="rMode_input_color" name="renderingMode" checked><label for="rMode_input_color">Color</label>
+		<p>FPS: <span id="fps_counter">0</span></p>
+		<p>Use mouse to navigate, mouse wheel to zoom, space to update frame once and -/+ to change iterations</p>
+	</div>
+</body>
+
+</html>
