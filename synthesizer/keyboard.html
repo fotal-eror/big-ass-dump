@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset='utf-8'>
+	<title>Synthesizer</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+	<script defer src="keyboard.js"></script>
+	<style>
+		body {
+			color: white;
+			background: black;
+		}
+		.pressed_note {
+			background: #e8d119;
+			transition: background 0.1s ease-out;
+		}
+		table {
+			text-align: center;
+			border-collapse: collapse;
+			width: 100%;
+			table-layout: fixed;
+			user-select: none;
+		}
+		td {
+			border: solid 1px;
+			transition: background 2s cubic-bezier(0, 0, 0.2, 1);
+			height: 25vh;
+			/* ouline, lol */
+			text-shadow: black 0 0 3px, black 0 0 3px, black 0 0 3px, black 0 0 3px;
+			font: 1.5em sans-serif;
+		}
+		caption {
+			caption-side: bottom;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="main" hidden>
+	<table id="table">
+		<tr>
+			<td id="table_c"     >C </td>
+			<td id="table_cSharp">C#</td>
+			<td id="table_d"     >D </td>
+			<td id="table_dSharp">D#</td>
+			<td id="table_e"     >E </td>
+			<td id="table_f"     >F </td>
+			<td id="table_fSharp">F#</td>
+			<td id="table_g"     >G </td>
+			<td id="table_gSharp">G#</td>
+			<td id="table_a"     >A </td>
+			<td id="table_aSharp">A#</td>
+			<td id="table_b"     >B </td>
+		</tr>
+		<caption>Use keyboard, mouse or (buggy, though) touch screen</caption>
+	</table>
+	
+	<form id="controls" onsubmit="return false">
+		<fieldset>
+			<legend>Wave type</legend>
+			<input type="radio" name="wavetype" value="sine"     id="wavetype_sine"     checked><label for="wavetype_sine"    >Sine</label    >
+			<input type="radio" name="wavetype" value="square"   id="wavetype_square"          ><label for="wavetype_square"  >Square</label  >
+			<input type="radio" name="wavetype" value="sawtooth" id="wavetype_sawtooth"        ><label for="wavetype_sawtooth">Sawtooth</label>
+			<input type="radio" name="wavetype" value="triangle" id="wavetype_triangle"        ><label for="wavetype_triangle">Triangle</label>
+		</fieldset>
+		<fieldset>
+			<legend>Volume</legend>
+			<input type="range" id="input_volume" min="0" max="1" value="1" step="any">
+		</fieldset>
+		<fieldset>
+			<legend>Tone</legend>
+			<label for="input_frequency">Octave (frequency of A):</label> <input type="number" id="input_frequency" placeholder="Hz" list="input_frequency_datalist" value="440" min="0" max="19644">
+			<datalist id="input_frequency_datalist">
+				<option value="13.75">A<sub>-1</sub></option>
+				<option value="27.5" >A<sub>0 </sub></option>
+				<option value="55"   >A<sub>1 </sub></option>
+				<option value="110"  >A<sub>2 </sub></option>
+				<option value="220"  >A<sub>3 </sub></option>
+				<option value="440"  >A<sub>4 </sub></option>
+				<option value="880"  >A<sub>5 </sub></option>
+				<option value="1760" >A<sub>6 </sub></option>
+				<option value="3520" >A<sub>7 </sub></option>
+				<option value="7040" >A<sub>8 </sub></option>
+				<option value="14080">A<sub>9 </sub></option>
+			</datalist>
+			<label for="input_detune">Detune:</label> <input type="range" id="input_detune" min="-50" max="50" value="0" step="any">
+		</fieldset>
+		<fieldset>
+			<legend>Envelope</legend>
+			<label for="input_adsrAttackDuration"     >Attack duration:</label     > <input type="number" id="input_adsrAttackDuration"       value="0.05" min="0" placeholder="s" step="0.05">
+			<label for="input_adsrDecayDuration"      >Decay duration:</label      > <input type="number" id="input_adsrDecayDuration"        value="0.05" min="0" placeholder="s" step="0.05">
+			<label for="input_adsrSustainAmplitude"   >Sustain amplitude:</label   > <input type="range"  id="input_adsrSustainAmplitude"     value="0.8"  min="0" max="1"         step="any" >
+			<label for="input_adsrReleaseTimeconstant">Release time-constant:</label> <input type="number" id="input_adsrReleaseTimeconstant" value="0.3"  min="0" placeholder="s" step="0.1" >
+		</fieldset>
+	</form>
+	</div>
+
+	<button id="startButton" onclick="start();main.hidden=false;startButton.parentNode.removeChild(startButton)">Click here to start!</button>
+</body>
+
+</html>
