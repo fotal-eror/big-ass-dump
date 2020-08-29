@@ -51,9 +51,9 @@
 		<table>
 			<caption>A vector</caption>
 		<tbody>
-			<tr><td><label><var>V<sub>x</sub></var>: <input type="number" class="vec_input noborder" data-index="0" value="0.6" step="0.05"></label></td></tr>
-			<tr><td><label><var>V<sub>y</sub></var>: <input type="number" class="vec_input noborder" data-index="1" value="0.4" step="0.05"></label></td></tr>
-			<tr><td><label><var>V<sub>w</sub></var>: <input type="number" class="vec_input noborder" data-index="2" value="1"   step="0.05"></label></td></tr>
+			<tr><td><label><var>A<sub>x</sub></var>: <input type="number" class="vec_input noborder" data-index="0" value="0.6" step="0.05"></label></td></tr>
+			<tr><td><label><var>A<sub>y</sub></var>: <input type="number" class="vec_input noborder" data-index="1" value="0.4" step="0.05"></label></td></tr>
+			<tr><td><label><var>A<sub>w</sub></var>: <input type="number" class="vec_input noborder" data-index="2" value="1"   step="0.05"></label></td></tr>
 		</tbody></table>
 	</div>
 
@@ -63,10 +63,13 @@
 			<table><tbody>
 				<!-- x -->
 				<tr>
-					<td class="noborder"><var>V<sub>x</sub></var> = </td>
+					<!-- Definition -->
+					<td><var>V<sub>x</sub></var></td>
+
+					<td class="noborder"> = </td>
 		
 					<!-- Notation -->
-					<td><var>M<sub>11</sub></var>×<var>V<sub>x</sub></var> + <var>M<sub>12</sub></var>×<var>V<sub>y</sub></var> + <var>M<sub>13</sub></var>×<var><sub>w</sub></var></td>
+					<td><var>M<sub>11</sub></var>×<var>A<sub>x</sub></var> + <var>M<sub>12</sub></var>×<var>A<sub>y</sub></var> + <var>M<sub>13</sub></var>×<var>A<sub>w</sub></var></td>
 		
 					<td class="noborder"> = </td>
 		
@@ -80,10 +83,13 @@
 				</tr>
 				<!-- y -->
 				<tr>
-					<td class="noborder"><var>V<sub>y</sub></var> = </td>
+					<!-- Definition -->
+					<td><var>V<sub>y</sub></var></td>
+
+					<td class="noborder"> = </td>
 		
 					<!-- Notation -->
-					<td><var>M<sub>21</sub></var>×<var>V<sub>x</sub></var> + <var>M<sub>22</sub></var>×<var>V<sub>y</sub></var> + <var>M<sub>23</sub></var>×<var><sub>w</sub></var></td>
+					<td><var>M<sub>21</sub></var>×<var>A<sub>x</sub></var> + <var>M<sub>22</sub></var>×<var>A<sub>y</sub></var> + <var>M<sub>23</sub></var>×<var>A<sub>w</sub></var></td>
 		
 					<td class="noborder"> = </td>
 		
@@ -97,10 +103,13 @@
 				</tr>
 				<!-- w -->
 				<tr>
-					<td class="noborder"><var>V<sub>w</sub></var> = </td>
+					<!-- Definition -->
+					<td><var>V<sub>w</sub></var></td>
+
+					<td class="noborder"> = </td>
 		
 					<!-- Notation -->
-					<td><var>M<sub>31</sub></var>×<var>V<sub>x</sub></var> + <var>M<sub>32</sub></var>×<var>V<sub>y</sub></var> + <var>M<sub>33</sub></var>×<var><sub>w</sub></var></td>
+					<td><var>M<sub>31</sub></var>×<var>A<sub>x</sub></var> + <var>M<sub>32</sub></var>×<var>A<sub>y</sub></var> + <var>M<sub>33</sub></var>×<var>A<sub>w</sub></var></td>
 		
 					<td class="noborder"> = </td>
 		
@@ -113,10 +122,10 @@
 					<td><output class="vecByMtx_output" data-index="2"></output></td>
 				</tr>
 			</tbody></table>
-			And when converting the Homogeneous vector to Cartesian (when rendering), all other elements of <var>V</var> are divided by <var>V<sub>w</sub></var>:
+			And when converting the Homogeneous vector <var>V</var> to Cartesian <var>U</var> (when rendering), all other elements of <var>V</var> are divided by <var>V<sub>w</sub></var>:
 			<table><tbody>
-				<tr><td class="noborder"><var>U<sub>x</sub></var> = </td><td><var>V<sub>x</sub></var>÷<var>V<sub>w</sub></var></td><td class="noborder"> = </td><td><output class="vecByMtx_output" data-index="0"></output>÷<output class="vecByMtx_output" data-index="2"></output></td><td class="noborder"> = </td><td><output class="cart_output" data-index="0"></output></td></tr>
-				<tr><td class="noborder"><var>U<sub>x</sub></var> = </td><td><var>V<sub>x</sub></var>÷<var>V<sub>w</sub></var></td><td class="noborder"> = </td><td><output class="vecByMtx_output" data-index="1"></output>÷<output class="vecByMtx_output" data-index="2"></output></td><td class="noborder"> = </td><td><output class="cart_output" data-index="1"></output></td></tr>
+				<tr><td><var>U<sub>x</sub></var></td><td class="noborder"> = </td><td><var>V<sub>x</sub></var>÷<var>V<sub>w</sub></var></td><td class="noborder"> = </td><td><output class="vecByMtx_output" data-index="0"></output>÷<output class="vecByMtx_output" data-index="2"></output></td><td class="noborder"> = </td><td><output class="cart_output" data-index="0"></output></td></tr>
+				<tr><td><var>U<sub>x</sub></var></td><td class="noborder"> = </td><td><var>V<sub>x</sub></var>÷<var>V<sub>w</sub></var></td><td class="noborder"> = </td><td><output class="vecByMtx_output" data-index="1"></output>÷<output class="vecByMtx_output" data-index="2"></output></td><td class="noborder"> = </td><td><output class="cart_output" data-index="1"></output></td></tr>
 			</tbody></table>
 		</p>
 	</div>
