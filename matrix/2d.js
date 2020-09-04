@@ -18,7 +18,7 @@ function matrix(/** @type {Matrix3x3} */ mtx, /** @type {Vector3} */ vec) {
 	])
 }
 
-function screenToNDC(/** @type {[number, number, number]} */ [x, y], /** @type {[number, number, number]} */ [w, h]) {
+function screenToNDC(/** @type {[number, number]} */ [x, y], /** @type {[number, number]} */ [w, h]) {
 	return /** @type {[number, number]} */ ([
 		 2 * x / w - 1,
 		-2 * y / h + 1

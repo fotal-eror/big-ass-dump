@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset='utf-8'>
+	<title>3D homogeneous matrix</title>
+	<script defer src='3d.js'></script>
+	<style>
+		canvas {
+			border: solid;
+		}
+		table {
+			border-collapse: collapse;
+			margin: 8px 0;
+		}
+		table td {
+			border: solid 1px;
+		}
+		.noborder {
+			border: none;
+		}
+	</style>
+</head>
+
+<body>
+	<div><canvas id="cnv" width="480" height="480"></canvas></div>
+
+	<div>
+		<label><input type="radio" name="grid_input" value="dotted" checked> Dots</label>
+		<label><input type="radio" name="grid_input" value="lined"         > Lined lattice</label>
+		<label><input type="radio" name="grid_input" value="planes"        > Only planes</label>
+	</div>
+
+	<div>
+		<table>
+			<caption>The matrix</caption>
+		<tbody>
+			<tr>
+				<td><label><var>M<sub>11</sub></var>: <input type="number" name="mtx_input" class="noborder" data-index="0"  value="1" step="0.05"></label></td>
+				<td><label><var>M<sub>12</sub></var>: <input type="number" name="mtx_input" class="noborder" data-index="4"  value="0" step="0.05"></label></td>
+				<td><label><var>M<sub>13</sub></var>: <input type="number" name="mtx_input" class="noborder" data-index="8"  value="0" step="0.05"></label></td>
+				<td><label><var>M<sub>14</sub></var>: <input type="number" name="mtx_input" class="noborder" data-index="12" value="0" step="0.05"></label></td>
+			</tr>
+			<tr>
+				<td><label><var>M<sub>21</sub></var>: <input type="number" name="mtx_input" class="noborder" data-index="1"  value="0" step="0.05"></label></td>
+				<td><label><var>M<sub>22</sub></var>: <input type="number" name="mtx_input" class="noborder" data-index="5"  value="1" step="0.05"></label></td>
+				<td><label><var>M<sub>23</sub></var>: <input type="number" name="mtx_input" class="noborder" data-index="9"  value="0" step="0.05"></label></td>
+				<td><label><var>M<sub>24</sub></var>: <input type="number" name="mtx_input" class="noborder" data-index="13" value="0" step="0.05"></label></td>
+			</tr>
+			<tr>
+				<td><label><var>M<sub>31</sub></var>: <input type="number" name="mtx_input" class="noborder" data-index="2"  value="0" step="0.05"></label></td>
+				<td><label><var>M<sub>32</sub></var>: <input type="number" name="mtx_input" class="noborder" data-index="6"  value="0" step="0.05"></label></td>
+				<td><label><var>M<sub>33</sub></var>: <input type="number" name="mtx_input" class="noborder" data-index="10" value="1" step="0.05"></label></td>
+				<td><label><var>M<sub>34</sub></var>: <input type="number" name="mtx_input" class="noborder" data-index="14" value="0" step="0.05"></label></td>
+			</tr>
+			<tr>
+				<td><label><var>M<sub>41</sub></var>: <input type="number" name="mtx_input" class="noborder" data-index="3"  value="0" step="0.05"></label></td>
+				<td><label><var>M<sub>42</sub></var>: <input type="number" name="mtx_input" class="noborder" data-index="7"  value="0" step="0.05"></label></td>
+				<td><label><var>M<sub>43</sub></var>: <input type="number" name="mtx_input" class="noborder" data-index="11" value="0" step="0.05"></label></td>
+				<td><label><var>M<sub>44</sub></var>: <input type="number" name="mtx_input" class="noborder" data-index="15" value="1" step="0.05"></label></td>
+			</tr>
+		</tbody></table>
+
+		<table>
+			<caption>A vector</caption>
+		<tbody>
+			<tr><td><label><var>A<sub>x</sub></var>: <input type="number" name="vec_input" class="noborder" data-index="0" value="0.6" step="0.05"></label></td></tr>
+			<tr><td><label><var>A<sub>y</sub></var>: <input type="number" name="vec_input" class="noborder" data-index="1" value="0.4" step="0.05"></label></td></tr>
+			<tr><td><label><var>A<sub>z</sub></var>: <input type="number" name="vec_input" class="noborder" data-index="2" value="0.3" step="0.05"></label></td></tr>
+			<tr><td><label><var>A<sub>w</sub></var>: <input type="number" name="vec_input" class="noborder" data-index="3" value="1"   step="0.05"></label></td></tr>
+		</tbody></table>
+	</div>
+</body>
+
+</html>
