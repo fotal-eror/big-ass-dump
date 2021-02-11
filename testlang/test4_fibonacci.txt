@@ -6,7 +6,6 @@ SET n-0 1
 
 SET i 0
 FOR i num
-	SET tmp 0
 	ADD tmp n-0 n-1
 	SET n-1 n-0
 	SET n-0 tmp
