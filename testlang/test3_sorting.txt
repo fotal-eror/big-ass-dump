@@ -1,0 +1,49 @@
+# consts
+SET ARR_PTR 50
+
+# input
+INPUT len
+SET i 0
+FOR i len
+	INPUT val
+	ADD inx i ARR_PTR
+	STORE inx val
+ENDFOR i
+
+
+# selection sort, i think
+SET i 0
+FOR i len
+	ADD j i 1
+
+	ADD maxInx ARR_PTR i
+	LOAD max maxInx
+
+	# find maximal value from [j len)
+	FOR j len
+		ADD curInx ARR_PTR j
+		LOAD cur curInx
+
+		# if cur > max
+		CMP isGtr max cur
+		IF isGtr
+			SET maxInx curInx
+			SET max cur
+		ENDIF
+	ENDFOR j
+
+	# exchange [iInx] and [maxInx]
+	ADD iInx ARR_PTR i
+	LOAD tmp iInx
+	STORE iInx max
+	STORE maxInx tmp
+ENDFOR i
+
+
+# output
+SET i 0
+FOR i len
+	ADD inx ARR_PTR i
+	LOAD val inx
+	OUTPUT val
+ENDFOR i

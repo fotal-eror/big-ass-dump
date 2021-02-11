@@ -1,0 +1,12 @@
+INPUT addOrSub
+
+INPUT a
+INPUT b
+
+IF addOrSub
+	ADD a a b
+ELSE
+	SUB a a b
+ENDIF
+
+OUTPUT a

@@ -1,0 +1,5 @@
+# will ask for input until zero is inputed
+SET val 1
+WHILE val
+    INPUT val
+ENDWHILE
